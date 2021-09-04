@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block contenido -%}
+    {% if session["usuario"] -%}
+        <h2>Este contenido se muestra, una vez que un usuario se registra</h2>
+    {% else %}
+        <h2>Este contenido es visible para todos los usuarios</h2>
+    {%- endif %}
+{%- endblock %}

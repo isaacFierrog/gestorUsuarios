@@ -1,0 +1,7 @@
+{% macro mostrar_mensajes() -%}
+    {% with mensajes = get_flashed_messages(with_categories=True) -%}
+        {% for categoria, mensaje in mensajes -%}
+            <p class="{{ categoria }} mensaje mensaje--oculto">{{ mensaje }}</p>
+        {%- endfor %}
+    {%- endwith %}
+{%- endmacro %}

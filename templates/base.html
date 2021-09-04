@@ -1,0 +1,37 @@
+{% from "_macros.html" import mostrar_mensajes %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Gestor de usuarios {% block titulo -%}{%- endblock %}
+    </title>
+    <!--CSS-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    {{ mostrar_mensajes() }}
+
+    <header class="header container">
+        <h1 class="header__title"> 
+            <a href="{{ url_for('index') }}">Gestor de usuarios</a> 
+        </h1>
+        <nav class="nav">
+            <a class="nav__item" href="{{ url_for('ingresar_usuario') }}">Iniciar sesion</a>
+            <a class="nav__item" href="{{ url_for('registrar_usuario') }}">Registrarse</a>
+            {% if session["usuario"] -%}
+                <a class="nav__item" href="{{ url_for('salir_usuario') }}">Cerrar sesion</a>
+            {%- endif %}
+        </nav>
+    </header>
+
+    <main class="main">
+        {% block contenido -%}
+        {%- endblock %}
+    </main>
+    <script src="{{ url_for('static', filename='js/main.js') }}" type="module"></script>
+</body>
+</html>

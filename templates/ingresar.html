@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block titulo -%}| Ingresar{%- endblock %}
+
+{% block contenido -%}
+    <h2>Inicio de sesion</h2>
+    <form class="form" action="{{ url_for('ingresar_usuario') }}" method="POST">
+        <label for="nombre">
+            <input class="form__input" type="text" name="nombre" id="nombre" placeholder="Nombre de usuario" required>
+        </label>
+        <label for="password">
+            <input class="form__input" type="password" name="password" id="password" placeholder="Ingresa tu contraseña" required>
+        </label>
+        <input class="form__input form__input--sub" type="submit" value="Iniciar sesion">
+    </form>
+{%- endblock %}

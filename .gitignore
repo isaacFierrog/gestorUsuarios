@@ -1,0 +1,5 @@
+#Ignorar la carpeta de entorno virtual
+env
+__pycache__
+#Ignorar todos los documentos .db
+*.db
